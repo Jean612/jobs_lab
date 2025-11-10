@@ -61,7 +61,7 @@ gem 'redis', '~> 5.0'
 gem 'sidekiq-cron', '~> 1.12'
 
 # Para debugging y visualización
-gem 'sidekiq-status', '~> 3.0'
+gem 'sidekiq-status', '~> 4.0'
 
 # Para simular envío de emails en desarrollo
 gem 'letter_opener', group: :development
