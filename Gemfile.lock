@@ -305,9 +305,11 @@ GEM
       fugit (~> 1.8)
       globalid (>= 1.0.1)
       sidekiq (>= 6)
-    sidekiq-status (3.0.3)
+    sidekiq-status (4.0.0)
+      base64
       chronic_duration
-      sidekiq (>= 6.0, < 8)
+      logger
+      sidekiq (>= 7, < 9)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -373,7 +375,7 @@ DEPENDENCIES
   selenium-webdriver
   sidekiq (~> 7.2)
   sidekiq-cron (~> 1.12)
-  sidekiq-status (~> 3.0)
+  sidekiq-status (~> 4.0)
   sprockets-rails
   stimulus-rails
   turbo-rails
