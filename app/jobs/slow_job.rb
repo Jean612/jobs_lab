@@ -1,10 +1,13 @@
-# En app/jobs/slow_job.rb
+# A job that simulates a slow task.
 class SlowJob < ApplicationJob
-  queue_as :low  # Cola de baja prioridad
+  queue_as :low  # Low priority queue
   
+  # Executes the slow job.
+  #
+  # @param number [Integer] The number of the job.
   def perform(number)
-    Rails.logger.info "🐌 Job lento ##{number} iniciando..."
-    sleep(10)  # Tarda 10 segundos
-    Rails.logger.info "🐌 Job lento ##{number} terminado!"
+    Rails.logger.info "🐌 Slow job ##{number} starting..."
+    sleep(10)  # Takes 10 seconds
+    Rails.logger.info "🐌 Slow job ##{number} finished!"
   end
 end
