@@ -1,0 +1,39 @@
+<h1>Laboratorio de Jobs</h1>
+
+<div style="margin: 20px 0;">
+  <%= button_to "Crear Tarea SÍNCRONA (bloquea 5 seg)", 
+                create_sync_tasks_path, 
+                method: :post,
+                style: "background: red; color: white; padding: 10px;" %>
+  
+  <%= button_to "Crear Tarea ASÍNCRONA (no bloquea)", 
+                create_async_tasks_path, 
+                method: :post,
+                style: "background: green; color: white; padding: 10px;" %>
+</div>
+
+<h2>Estado de las Tareas</h2>
+<table border="1" style="width: 100%;">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Estado</th>
+      <th>Tiempo de Procesamiento</th>
+      <th>Creada</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr style="background: <%= task.status == 'completed' ? '#90EE90' : '#FFFFE0' %>">
+        <td><%= task.id %></td>
+        <td><%= task.name %></td>
+        <td><strong><%= task.status %></strong></td>
+        <td><%= task.processing_time %> segundos</td>
+        <td><%= task.created_at.strftime("%H:%M:%S") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to "Refrescar", tasks_path, method: :get %>
